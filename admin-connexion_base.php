@@ -39,7 +39,7 @@ var_dump($pseudo);
   {
       if ($isPasswordCorrect) {
           session_start();
-          header('location:admin-panel.php');
+          header('location:panel-admin.php');
       }
       else {
           echo 'Mauvais identifiant ou mot de passe !';

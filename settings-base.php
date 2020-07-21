@@ -28,7 +28,7 @@ $reqUpdateUser->bindParam(':motdepasse', $password_hash);
 $reqUpdateUser->execute();
 
 if ($reqUpdateUser->rowCount() == 1){
-    header('Location: admin-panel.php');
+    header('Location: panel-admin.php');
 } else {
     echo 'requete KO';
 }
