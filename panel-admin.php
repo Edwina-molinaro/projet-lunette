@@ -155,7 +155,7 @@ body{font-family: Manrope;}blockquote{border-color: #6d7a71;}div[submit-success]
     <h2>Category</h2>
 
     <h3> Sunglasses</h3>
-    <button class="btn">Add</button>
+    <a href="add-category.php"><button class="btn">Add</button></a>
     <button class="btn">Modify</button>
     <button class="btn">Delete</button>
 
