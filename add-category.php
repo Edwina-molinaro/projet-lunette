@@ -15,11 +15,14 @@
 <body>
         
         <h2>Add category</h2>
+        
         <form action="category-base.php" method="post">
+        
                 <label for="">category</label>
                 <input type="text" name="nom">
 
                 <button class="">Save</button>
+                
         </form>
 
 </body>

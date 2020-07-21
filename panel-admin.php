@@ -1,3 +1,15 @@
+<?php
+require 'src/config/config.php';
+require 'src/models/connect.php';
+
+$db=connection();
+
+$sqlSelectCategorie="SELECT * FROM categorie";
+$reqSelectCategorie=$db->prepare($sqlSelectCategorie);
+$reqSelectCategorie->execute();
+
+?>
+
 <!DOCTYPE html>
 <html amp >
 <head>
@@ -153,11 +165,17 @@ body{font-family: Manrope;}blockquote{border-color: #6d7a71;}div[submit-success]
     </section>
 
     <h2>Category</h2>
-
-    <h3> Sunglasses</h3>
+    <?php 
+         while($categorie = $reqSelectCategorie->fetchObject()){
+    ?>
+    <h3> <?php echo $categorie->nom; ?></h3>
+    
     <a href="add-category.php"><button class="btn">Add</button></a>
     <button class="btn">Modify</button>
     <button class="btn">Delete</button>
+    <?php
+                }
+                ?>
 
     <h3>Media</h2>
     <div class="mbr-col-lg-1 mbr-col-md-3 mbr-col-sm-12">
