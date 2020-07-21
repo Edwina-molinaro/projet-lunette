@@ -8,19 +8,19 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema projet-lunette
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema projet-lunette
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `projet-lunette` DEFAULT CHARACTER SET utf8 ;
+USE `projet-lunette` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`user`
+-- Table `projet-lunette`.`user`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`user` (
+CREATE TABLE IF NOT EXISTS `projet-lunette`.`user` (
   `idUser` INT NOT NULL AUTO_INCREMENT,
   `pseudo` VARCHAR(45) NULL,
   `nom` VARCHAR(45) NULL,
@@ -32,9 +32,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`produits`
+-- Table `projet-lunette`.`produits`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`produits` (
+CREATE TABLE IF NOT EXISTS `projet-lunette`.`produits` (
   `idproduits` INT NOT NULL AUTO_INCREMENT,
   `nom` VARCHAR(45) NULL,
   `prix` VARCHAR(255) NULL,
@@ -46,16 +46,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`produits` (
   INDEX `fk_produits_user_idx` (`user_idUser` ASC) VISIBLE,
   CONSTRAINT `fk_produits_user`
     FOREIGN KEY (`user_idUser`)
-    REFERENCES `mydb`.`user` (`idUser`)
+    REFERENCES `projet-lunette`.`user` (`idUser`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`categorie`
+-- Table `projet-lunette`.`categorie`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`categorie` (
+CREATE TABLE IF NOT EXISTS `projet-lunette`.`categorie` (
   `idcategorie` INT NOT NULL AUTO_INCREMENT,
   `nom` VARCHAR(45) NULL,
   `user_idUser` INT NOT NULL,
@@ -64,16 +64,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`categorie` (
   INDEX `fk_categorie_user1_idx` (`user_idUser` ASC) VISIBLE,
   CONSTRAINT `fk_categorie_user1`
     FOREIGN KEY (`user_idUser`)
-    REFERENCES `mydb`.`user` (`idUser`)
+    REFERENCES `projet-lunette`.`user` (`idUser`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`contact`
+-- Table `projet-lunette`.`contact`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`contact` (
+CREATE TABLE IF NOT EXISTS `projet-lunette`.`contact` (
   `idcontact` INT NOT NULL AUTO_INCREMENT,
   `nom` VARCHAR(255) NULL,
   `email` VARCHAR(255) NULL,
@@ -85,9 +85,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Newsletter`
+-- Table `projet-lunette`.`Newsletter`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Newsletter` (
+CREATE TABLE IF NOT EXISTS `projet-lunette`.`Newsletter` (
   `idNewsletter` INT NOT NULL AUTO_INCREMENT,
   `email` VARCHAR(255) NULL,
   PRIMARY KEY (`idNewsletter`),
@@ -96,9 +96,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`categorie_has_produits`
+-- Table `projet-lunette`.`categorie_has_produits`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`categorie_has_produits` (
+CREATE TABLE IF NOT EXISTS `projet-lunette`.`categorie_has_produits` (
   `categorie_idcategorie` INT NOT NULL,
   `categorie_user_idUser` INT NOT NULL,
   `produits_idproduits` INT NOT NULL,
@@ -108,21 +108,21 @@ CREATE TABLE IF NOT EXISTS `mydb`.`categorie_has_produits` (
   INDEX `fk_categorie_has_produits_categorie1_idx` (`categorie_idcategorie` ASC, `categorie_user_idUser` ASC) VISIBLE,
   CONSTRAINT `fk_categorie_has_produits_categorie1`
     FOREIGN KEY (`categorie_idcategorie` , `categorie_user_idUser`)
-    REFERENCES `mydb`.`categorie` (`idcategorie` , `user_idUser`)
+    REFERENCES `projet-lunette`.`categorie` (`idcategorie` , `user_idUser`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_categorie_has_produits_produits1`
     FOREIGN KEY (`produits_idproduits` , `produits_user_idUser`)
-    REFERENCES `mydb`.`produits` (`idproduits` , `user_idUser`)
+    REFERENCES `projet-lunette`.`produits` (`idproduits` , `user_idUser`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`media`
+-- Table `projet-lunette`.`media`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`media` (
+CREATE TABLE IF NOT EXISTS `projet-lunette`.`media` (
   `idmedia` INT NOT NULL AUTO_INCREMENT,
   `type` VARCHAR(45) NULL,
   `nom` VARCHAR(45) NULL,
@@ -133,9 +133,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`media_has_produits`
+-- Table `projet-lunette`.`media_has_produits`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`media_has_produits` (
+CREATE TABLE IF NOT EXISTS `projet-lunette`.`media_has_produits` (
   `media_idmedia` INT NOT NULL,
   `produits_idproduits` INT NOT NULL,
   `produits_user_idUser` INT NOT NULL,
@@ -144,21 +144,21 @@ CREATE TABLE IF NOT EXISTS `mydb`.`media_has_produits` (
   INDEX `fk_media_has_produits_media1_idx` (`media_idmedia` ASC) VISIBLE,
   CONSTRAINT `fk_media_has_produits_media1`
     FOREIGN KEY (`media_idmedia`)
-    REFERENCES `mydb`.`media` (`idmedia`)
+    REFERENCES `projet-lunette`.`media` (`idmedia`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_media_has_produits_produits1`
     FOREIGN KEY (`produits_idproduits` , `produits_user_idUser`)
-    REFERENCES `mydb`.`produits` (`idproduits` , `user_idUser`)
+    REFERENCES `projet-lunette`.`produits` (`idproduits` , `user_idUser`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`client`
+-- Table `projet-lunette`.`client`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`client` (
+CREATE TABLE IF NOT EXISTS `projet-lunette`.`client` (
   `idclient` INT NOT NULL AUTO_INCREMENT,
   `email` VARCHAR(45) NULL,
   `nom` VARCHAR(45) NULL,
