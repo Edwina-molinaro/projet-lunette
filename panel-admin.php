@@ -10,7 +10,7 @@
   <meta name="description" content="">
   <meta name="amp-script-src" content="">
   
-  <title>Home</title>
+  <title>Admin panel</title>
   
 <link rel="canonical" href="./">
  <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style>
@@ -159,25 +159,20 @@ body{font-family: Manrope;}blockquote{border-color: #6d7a71;}div[submit-success]
     <button class="btn">Modify</button>
     <button class="btn">Delete</button>
 
-    <h2>Media</h2>
+    <h3>Media</h2>
     <div class="mbr-col-lg-1 mbr-col-md-3 mbr-col-sm-12">
         <div class="img-wrapper">
             <amp-img src="assets/images/1.png" alt="" width="104.39999999999999" height="87" layout="responsive" class="mobirise-loader mbr-m-auto align-center">
                 <div placeholder="" class="placeholder">
-                        <div class="mobirise-spinner">
-                            <em></em>
-                            <em></em>
-                            <em></em>
-                        </div></div>
-                
             </amp-img>
         </div>
-    
-</div>
+    </div>
     <button class="btn">Add</button>
     <button class="btn">Modify</button>
     <button class="btn">Delete</button>
 
+    <h3>Settings</h3>
+    <a href="settings.php"><button>Change informations</button></a>
 
   
   

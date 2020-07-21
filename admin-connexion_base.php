@@ -20,7 +20,7 @@ $db = connection();
 
 
 //$pass_hash = password_hash($password, PASSWORD_BCRYPT);
-$password_hash = hash('sha512', $password);
+$password_hash = hash('sha512', $motdepasse);
 
 
 $sqlSelectUser='SELECT pseudo, motdepasse FROM user';
@@ -29,8 +29,8 @@ $reqSelectUser->bindParam(':pseudo', $pseudo, PDO::PARAM_STR, 45);
 $reqSelectUser->execute();
 $resultat=$reqSelectUser->fetchObject();
 
-$isPasswordCorrect=hash_equals($password_hash, $resultat->password);
-
+$isPasswordCorrect=hash_equals($password_hash, $resultat->motdepasse);
+var_dump($pseudo);
   if (!$resultat)
   {
       echo 'Mauvais identifiant ou mot de passe !';

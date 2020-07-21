@@ -10,11 +10,11 @@
   <meta name="description" content="">
   <meta name="amp-script-src" content="">
   
-  <title>Admin connexion</title>
+  <title>Settings</title>
   </head>
 <body>
         
-        <h2>Connexion</h2>
+        <h2>Change user infos</h2>
         <form action="admin-connexion_base.php" method="post">
                     <label for="">Login</label>
                     <input type="text" name="pseudo">
@@ -22,7 +22,7 @@
                     <label for="">Password</label>
                     <input type="text" name="motdepasse">
                 </div>
-                    <button class="">Connexion</button>
+                    <button class="">Save</button>
                 </div>
             </form>
 
