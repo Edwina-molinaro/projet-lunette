@@ -15,7 +15,7 @@
 <body>
         
         <h2>Change user infos</h2>
-        <form action="admin-connexion_base.php" method="post">
+        <form action="settings-base.php" method="post">
                     <label for="">Login</label>
                     <input type="text" name="pseudo">
                 </div>
