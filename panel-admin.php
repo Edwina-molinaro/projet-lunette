@@ -1,4 +1,6 @@
 <?php
+session_start();
+setcookie('pseudo', 'admin', time() + 365*24*3600); 
 require 'src/config/config.php';
 require 'src/models/connect.php';
 

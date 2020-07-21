@@ -1,3 +1,22 @@
+<?php
+require 'src/config/config.php';
+require 'src/models/connect.php';
+
+$db=connection();
+
+if(isset($_GET['idcategorie'])){
+    $id = htmlspecialchars(trim($_GET['idcategorie']));
+} else {
+    $id = '';
+}
+
+$sqlSelectCategorie="SELECT * FROM categorie WHERE idcategorie = :ids";
+$reqSelectCategorie=$db->prepare($sqlSelectCategorie);
+$reqSelectCategorie->bindParam(':ids', $id);
+$reqSelectCategorie->execute();
+
+?>
+
 <!DOCTYPE html>
 <html amp >
 <head>
@@ -15,12 +34,15 @@
 <body>
         
         <h2>Add category</h2>
+        <?php 
+            $id = $reqSelectCategorie->fetchObject();           
+         ?>
         
         <form action="category-base.php" method="post">
         
                 <label for="">category</label>
                 <input type="text" name="nom">
-
+                <input class="invisible" type="text" name="idcategorie" placeholder="quantite" value="<?php echo $id->idcategorie ?>"/>
                 <button class="">Save</button>
                 
         </form>

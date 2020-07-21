@@ -1,3 +1,9 @@
+<?php
+session_start();
+$_SESSION['pseudo'] = 'admin';
+
+?>
+
 <!DOCTYPE html>
 <html amp >
 <head>
