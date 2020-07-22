@@ -1,5 +1,16 @@
 <?php
 session_start(); 
+
+if(isset($_POST['pseudo'])){
+    $pseudo = htmlspecialchars(trim($_POST['pseudo']));
+} else {
+   $pseudo = '';
+}
+
+setcookie('cookie', $pseudo, time() + 3600,  '/'); 
+
+echo $_COOKIE["cookie"];
+
 require 'src/config/config.php';
 require 'src/models/connect.php';
 
@@ -38,7 +49,6 @@ var_dump($pseudo);
   else
   {
       if ($isPasswordCorrect) {
-          session_start();
           header('location:panel-admin.php');
       }
       else {

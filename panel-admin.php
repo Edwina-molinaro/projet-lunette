@@ -1,15 +1,5 @@
 <?php
-session_start();
 
-if(isset($_GET['pseudo'])){
-    $pseudo = htmlspecialchars(trim($_GET['pseudo']));
-} else {
-   $pseudo = '';
-}
-
-setcookie('cookie', $pseudo, time() + 3600); 
-
-echo $_COOKIE["cookie"];
 
 require 'src/config/config.php';
 require 'src/models/connect.php';

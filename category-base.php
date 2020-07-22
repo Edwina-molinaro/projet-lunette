@@ -24,10 +24,18 @@ if (isset($_POST['user_idUser'])){
 
 $db = connection();
 
+$pseudo=$_COOKIE["cookie"];
+$sqlSelectId="SELECT idUser FROM user WHERE pseudo=:pseudo";
+$reqSelectId=$db->prepare($sqlSelectId);
+$reqSelectId->bindParam(':pseudo', $_COOKIE["cookie"]);
+$reqSelectId->execute();
+$var=$reqSelectId->fetchObject();
+
+
 $sqlInsertCategory= 'insert INTO categorie (nom, user_idUser) VALUES (:nom, :user_idUser)';
 $reqInsertCategorie= $db->prepare($sqlInsertCategory);
 $reqInsertCategorie->bindParam(':nom', $nom);
-$reqInsertCategorie->bindParam(':user_idUser', $user_idUser);
+$reqInsertCategorie->bindParam(':user_idUser', $var->idUser);
 $reqInsertCategorie->execute();
 if ($reqInsertCategorie->rowCount() == 1){
     header('Location: panel-admin.php');
