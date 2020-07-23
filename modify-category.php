@@ -37,7 +37,7 @@ $reqSelectCategorie->execute();
 <body>
         
         <h2>Modify category</h2>      
-        <form action="modify-category-base.php" method="post">
+        <form action="modify-category_base.php" method="post">
         
                 <label for="">category</label>
                 <input type="text" name="nom">
