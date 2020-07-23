@@ -174,7 +174,7 @@ body{font-family: Manrope;}blockquote{border-color: #6d7a71;}div[submit-success]
     <h3> <?php echo $categorie->nom; ?></h3>
     
     <a href="add-category.php"><button class="btn">Add</button></a>
-    <button class="btn">Modify</button>
+    <a href="modify-category.php"><button class="btn">Modify</button></a>
     <button class="btn">Delete</button>
     <?php
                 }
