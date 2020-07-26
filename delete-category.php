@@ -1,26 +1,16 @@
 <?php
 session_start();
 echo $_COOKIE["cookie"];
-
-
 require 'src/config/config.php';
 require 'src/models/connect.php';
 
 $db=connection();
 
-if(isset($_GET['idcategorie'])){
-        $idcategorie = htmlspecialchars(trim($_GET['idcategorie']));
-    } else {
-        $idcategorie = '';
-    }
-
-setcookie('cookieCategorie', $idcategorie, time() + 3600,  '/'); 
 
 $sqlSelectCategorie="SELECT * FROM categorie WHERE idcategorie = :idcategorie";
 $reqSelectCategorie=$db->prepare($sqlSelectCategorie);
 $reqSelectCategorie->bindParam(':idcategorie', $idcategorie);
 $reqSelectCategorie->execute();
-$categorie = $reqSelectCategorie->fetchObject();
 
 ?>
 
@@ -36,19 +26,15 @@ $categorie = $reqSelectCategorie->fetchObject();
   <meta name="description" content="">
   <meta name="amp-script-src" content="">
   
-  <title>category modify</title>
+  <title>category Delete</title>
   </head>
 <body>
         
-        <h2>Modify category</h2>      
-        <form action="modify-category_base.php" method="post">
-       
-         <h3> <?php echo $categorie->nom; ?></h3>
-         <?php echo $categorie->idcategorie; ?>
+        <h2>Delete category</h2>      
+        <form action="delete-category_base.php" method="post">
+        
                 <label for="">category</label>
-                <input type="text" name="nom">
-                <a href="modify-category_base.php?idcategorie=<?php echo $categorie->idcategorie;?>">
-                <button class="">Save</button></a>
+                <button class="">Delete</button>
                 
         </form>
 

@@ -11,6 +11,13 @@ $sqlSelectCategorie="SELECT * FROM categorie";
 $reqSelectCategorie=$db->prepare($sqlSelectCategorie);
 $reqSelectCategorie->execute();
 
+if(isset($_GET['idcategorie'])){
+    $idcategorie = htmlspecialchars(trim($_GET['idcategorie']));
+} else {
+    $idcategorie = '';
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -174,8 +181,8 @@ body{font-family: Manrope;}blockquote{border-color: #6d7a71;}div[submit-success]
     <h3> <?php echo $categorie->nom; ?></h3>
     
     <a href="add-category.php"><button class="btn">Add</button></a>
-    <a href="modify-category.php"><button class="btn">Modify</button></a>
-    <button class="btn">Delete</button>
+    <a href="modify-category.php?idcategorie=<?php echo $categorie->idcategorie;?>"><button class="btn">Modify</button></a>
+    <a href="delete-category.php?idcategorie=<?php echo $categorie->idcategorie;?>"><button class="btn">Delete</button>
     <?php
                 }
                 ?>
