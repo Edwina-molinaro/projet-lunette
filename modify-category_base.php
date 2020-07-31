@@ -5,8 +5,6 @@ echo $_COOKIE["cookieCategorie"];
 
 
 
-
-
 if (isset($_POST['nom'])){
     $nom=htmlspecialchars(trim($_POST['nom']));
 } else {

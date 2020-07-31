@@ -14,7 +14,7 @@ if(isset($_GET['idcategorie'])){
         $idcategorie = '';
     }
 
-setcookie('cookieCategorie', $idcategorie, time() + 3600,  '/'); 
+setcookie('cookieCategorie', $idcategorie, time() + 60,  '/'); 
 
 $sqlSelectCategorie="SELECT * FROM categorie WHERE idcategorie = :idcategorie";
 $reqSelectCategorie=$db->prepare($sqlSelectCategorie);
